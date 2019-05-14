@@ -12,4 +12,3 @@
 .\objects\led.o: ..\LIB\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h
 .\objects\led.o: ..\LIB\STM32F10x_StdPeriph_Driver\inc\misc.h
 .\objects\led.o: ..\USER\FUNCTION\LED\led.h
-.\objects\led.o: ..\USER\FUNCTION\PWM\pwm.h

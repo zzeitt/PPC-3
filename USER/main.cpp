@@ -2,6 +2,7 @@
 #include "delay.h"
 #include "led.h"
 #include "pstwo.h"
+#include "servo.h"
 
 
 int main(void) {
@@ -12,6 +13,8 @@ int main(void) {
     /*==========类和变量初始化==========*/
     MyCar my_car;
     MyLEDBAll my_led_b;
+    MyServoAll my_servo_all;
+    
     u8 data_left_x, data_left_y, data_key;
     float f_left_x = 0.0;
     float f_left_y = 0.0;
@@ -81,6 +84,11 @@ int main(void) {
                 /*==========车头冲刺==========*/
                 case PSB_PAD_UP: {
                     my_car.headBaseStab(1.0);
+                    break;
+                }
+                /*==========舵机招手==========*/
+                case PSB_PAD_LEFT: {
+                    my_servo_all.doBeckon(6, 180, 200);
                     break;
                 }
             }

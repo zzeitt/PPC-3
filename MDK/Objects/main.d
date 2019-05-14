@@ -14,3 +14,4 @@
 .\objects\main.o: ..\USER\FUNCTION\DELAY\delay.h
 .\objects\main.o: ..\USER\FUNCTION\LED\led.h
 .\objects\main.o: ..\USER\FUNCTION\PSTWO\pstwo.h
+.\objects\main.o: ..\USER\FUNCTION\SERVO\servo.h
