@@ -1,6 +1,7 @@
 # PPC-3
 > ### A holonomic RC car.
 
+
 #### 硬件结构
 * STM32F103C8T6
 * 稳压模块
@@ -10,15 +11,25 @@
 * 舵机
 * 面包板 & 杜邦线 & 绝缘胶布
 
+
 #### 软件架构
-* main.cpp
-* FUNCTION
-    - car.cpp
-    - delay.c
-    - led.cpp
-    - pstwo.c
-    - servo.cpp
-    - sys.c
+* **USER**
+    - main.cpp
+    - FUNCTION
+        + CAR
+            * car.cpp
+        + DELAY
+            * delay.c
+        + LED
+            * led.cpp
+        + PSTWO
+            * pstwo.c
+        + SERVO
+            * servo.cpp
+        + SYS
+            * sys.c
+
+
 #### 功能说明
 | 按键 | 功能 |
 | --- | --- |
@@ -29,10 +40,12 @@
 | **方向键(左)** | 神龙摆尾 |
 | **图形键(绿/红/粉)** | 车头换成绿/红/粉 |
 
+
 #### 项目创新
 * 在Keil中使用C++编写，运用「类」将外设管理得非常好，代码架构清晰
 * 充分发挥全向轮的优势，将遥杆发出的二维控制信息分解为三个全向轮各自不同的速度，实现各方向的移动
 * 增加了舵机外设，增强攻击性
+
 
 #### 不足之处
 * 未使用PID算法，轮子实际运动与理论存在偏差
