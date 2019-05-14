@@ -7,13 +7,15 @@
 * 驱动模块
 * 全向轮
 * LED
+* 舵机
 * 面包板 & 杜邦线 & 绝缘胶布
 
 #### 软件架构
 * main.cpp
 * FUNCTION
-    - sys.c
-    - delay.c
-    - pstwo.c
     - car.cpp
+    - delay.c
     - led.cpp
+    - pstwo.c
+    - servo.cpp
+    - sys.c
