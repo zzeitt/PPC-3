@@ -107,5 +107,6 @@ class MyCar {
         void headBaseMove(float f_speed_x_arg, float f_speed_y_arg);
         void spinAntiClockwise(float f_speed_w_arg);
         void headBaseStab(float f_speed_arg);
+        void headBaseTemperMove(float f_temper_arg, float f_speed_x_arg, float f_speed_y_arg);
 };
 

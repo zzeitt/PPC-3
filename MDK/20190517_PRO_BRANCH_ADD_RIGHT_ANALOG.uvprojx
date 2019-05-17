@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>20190514_PRO_BRANCH_ADD_SERVO</OutputName>
+          <OutputName>20190517_PRO_BRANCH_ADD_RIGHT_ANALOG</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>

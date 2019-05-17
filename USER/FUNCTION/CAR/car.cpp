@@ -226,4 +226,7 @@ void MyCar::headBaseStab(float f_speed_arg) {
     headBaseMove(0.0, -f_speed_arg);
     delay_ms(150);
 }
-
+void MyCar::headBaseTemperMove(float f_temper_arg, float f_speed_x_arg, float f_speed_y_arg) {
+    setTemper(f_temper_arg);
+    headBaseMove(f_speed_x_arg, f_speed_y_arg);
+}

@@ -15,9 +15,11 @@ int main(void) {
     MyLEDBAll my_led_b;
     MyServoAll my_servo_all;
     
-    u8 data_left_x, data_left_y, data_key;
+    u8 data_left_x, data_left_y, data_right_x, data_right_y, data_key;
     float f_left_x = 0.0;
     float f_left_y = 0.0;
+    float f_right_x = 0.0;
+    float f_right_y = 0.0;
     /*==========主循环==========*/
     while(1) {
         delay_ms(1);
@@ -28,17 +30,26 @@ int main(void) {
             /*读取PS2模拟键值*/
             data_left_x = PS2_AnologData(PSS_LX);
             data_left_y = PS2_AnologData(PSS_LY);
+            data_right_x = PS2_AnologData(PSS_RX);
+            data_right_y = PS2_AnologData(PSS_RY);
             /*读取PS2按键键值*/
             data_key = PS2_DataKey();
             /*模拟值归一化*/
             f_left_x = (float)(data_left_x - 127) / 128;
-            f_left_y = (float)((-1.0)*(data_left_y - 127) / 128); //手柄Y方向反转
+            f_left_y = (float)((-1.0)*(data_left_y - 127) / 128); //左手柄Y方向反转
+            f_right_x = (float)(data_right_x - 127) / 128;
+            f_right_y = (float)((-1.0)*(data_right_y - 127) / 128); //右手柄Y方向反转
             /*控制车*/
-            if( (f_left_x * f_left_x + f_left_y * f_left_y) < 0.01 ) {
-                my_car.moveStop(); // 科学防抖
+            if( (f_left_x * f_left_x + f_left_y * f_left_y) < 0.01 ) { // 左摇杆控制
+                if( (f_right_x * f_right_x + f_right_y * f_right_y) < 0.04 ) { // 右摇杆控制
+                    my_car.moveStop(); // 科学防抖
+                } else {
+                    my_car.headBaseTemperMove(0.5, f_right_x, f_right_y);
+                }
             } else {
-                my_car.headBaseMove(f_left_x, f_left_y);
+                my_car.headBaseTemperMove(0.8, f_left_x, f_left_y);
             }
+
             switch(data_key) {
                 /*==========温和转圈==========*/
                 case PSB_L1: {
